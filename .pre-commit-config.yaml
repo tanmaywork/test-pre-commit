@@ -1,0 +1,29 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: 22.6.0
+    hooks:
+      - id: black
+        exclude: (.*/models.py|migrations/versions/.*\.py|.*/tests/.*)$
+        # https://pre-commit.com/#top_level-default_language_version
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+        exclude: \.(css|ts|tsx|bck|csv|js|json)$
+    -   id: check-merge-conflict
+    -   id: check-json
+    -   id: debug-statements
+    -   id: requirements-txt-fixer
+    -   id: check-symlinks
+  - repo: local
+    hooks:
+    -   id: isort
+        name: Sorting Imports
+        entry: isort
+        language: system
+        args: ["--profile", "black", "--filter-files"]
+        files: \.py$
+        exclude: (.*/models.py|migrations/versions/.*\.py|.*/tests/.*)$

@@ -1,13 +1,13 @@
 repos:
   - repo: https://github.com/psf/black
-    rev: 22.6.0
+    rev: 24.3.0
     hooks:
       - id: black
         exclude: (.*/models.py|migrations/versions/.*\.py|.*/tests/.*)$
         # https://pre-commit.com/#top_level-default_language_version
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.3.0
+    rev: v4.5.0
     hooks:
     -   id: check-yaml
     -   id: end-of-file-fixer
